@@ -1,0 +1,7 @@
+<h1>Добро пожаловать в магазин аксессуаров!</h1>
+
+{% if user.is_authenticated %}
+    <p>Привет, {{ user.username }}! <a href="{% url 'logout' %}">Выйти</a></p>
+{% else %}
+    <p><a href="{% url 'login' %}">Войти</a> или <a href="{% url 'register' %}">Зарегистрироваться</a></p>
+{% endif %}
