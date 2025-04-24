@@ -1,0 +1,16 @@
+<h2>Профиль пользователя {{ user.username }}</h2>
+
+<h3>Адреса доставки</h3>
+<a href="{% url 'address_add' %}">Добавить новый адрес</a>
+
+<ul>
+    {% for address in addresses %}
+        <li>
+            {{ address.full_name }}, {{ address.address_line }}, {{ address.city }}, {{ address.country }}
+            <a href="{% url 'address_edit' address.pk %}">Редактировать</a>
+            <a href="{% url 'address_delete' address.pk %}">Удалить</a>
+        </li>
+    {% empty %}
+        <li>Адреса не добавлены.</li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,8 @@
+<h2>Удалить адрес</h2>
+<p>Вы уверены, что хотите удалить адрес: {{ address.full_name }}, {{ address.address_line }}?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Удалить</button>
+    <a href="{% url 'profile' %}">Отмена</a>
+</form>
