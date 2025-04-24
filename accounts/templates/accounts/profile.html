@@ -1,5 +1,11 @@
 <h2>Профиль пользователя {{ user.username }}</h2>
 
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    <button type="submit">Сохранить изменения</button>
+</form>
+
 <h3>Адреса доставки</h3>
 <a href="{% url 'address_add' %}">Добавить новый адрес</a>
 

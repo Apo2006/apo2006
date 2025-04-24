@@ -3,8 +3,8 @@ from django.db import models
 from django.conf import settings  # импортируем settings для ForeignKey
 
 class CustomUser(AbstractUser):
-    # Пока оставим пустым, но сюда можно добавить дополнительные поля, например телефон
-    pass
+    avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
+    date_joined = models.DateTimeField(auto_now_add=True)
 
 class Address(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='addresses')
